@@ -1,0 +1,23 @@
+[
+  {
+    "placa":"AB123CD",
+    "marca": "fiat",
+    "color": "rojo",
+    "persona_id": "63c6a1b2-84d1-4f4e-be26-cfe879a83eb9"
+  },
+  {
+    "placa":"EF123JK",
+    "marca": "fiat",
+    "color": "rojo",
+    "persona_id": "63c6a1b2-84d1-4f4e-be26-cfe879a83eb9"
+  },
+  {
+    "placa":"MN123QZ",
+    "marca": "fiat",
+    "color": "rojo",
+    "persona_id": "62fd4f7f-67ea-49bf-af6a-dbd70680ab71"
+  }
+]
+
+
+

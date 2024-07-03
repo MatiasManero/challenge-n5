@@ -1,0 +1,17 @@
+[
+  {
+   "placa_patente": "AB123CD",
+    "timestamp": "2024-12-12T12:12:12.814+03:00",
+    "comentarios": "TEST INFRACCION 1"
+  },
+  {
+   "placa_patente": "EF123JK",
+    "timestamp": "2024-12-12T12:12:12.814+03:00",
+    "comentarios": "TEST INFRACCION 2"
+  },
+  {
+   "placa_patente": "MN123QZ",
+    "timestamp": "2024-12-12T12:12:12.814+03:00",
+    "comentarios": "TEST INFRACCION 1"
+  }
+]
