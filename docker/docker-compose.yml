@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  n5-app:
+    image: matimane90/challenge-n5
+    environment:
+      api_db_url: postgres_service
+      api_db_name: n5db
+      api_db_username: postgres
+      api_db_password: postgres
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres_service
+    networks:
+      - n5-network
+
+  postgres_service:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: n5db
+      POSTGRES_USER: postgres-
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - n5-network
+
+volumes:
+  postgres-data:
+    driver: local
+
+networks:
+  n5-network:
+    driver: bridge
