@@ -1,5 +1,16 @@
 # Informe del Proyecto
 
+## Endpoints Útiles
+### /admin
+
+Endpoint para administrar los modelos de la aplicación. Permite agregar, editar o borrar registros.
+
+### /generar_informe
+Endpoint para generar un informe con las infracciones de una persona.
+
+### /cargar_infraccion
+Endpoint exclusivo para oficiales, utilizado para cargar una infracción.
+
 ## Comandos de `Makefile`
 
 Este proyecto utiliza un `Makefile` para facilitar la construcción del contenedor Docker, ejecutar pruebas y manejar la infraestructura con Docker Compose. Aquí están los comandos definidos en el `Makefile`:
