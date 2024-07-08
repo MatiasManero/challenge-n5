@@ -11,6 +11,12 @@ Endpoint para generar un informe con las infracciones de una persona.
 ### /cargar_infraccion
 Endpoint exclusivo para oficiales, utilizado para cargar una infracción.
 
+### /login
+Endpoint que se utiliza para obtener el bearer token, es necesario como parametros de query el numero unico de oficial.
+
+### /docs
+Informacion de los endpoint como parametros de query soportados o body de la request requerido.
+
 ## Comandos de `Makefile`
 
 Este proyecto utiliza un `Makefile` para facilitar la construcción del contenedor Docker, ejecutar pruebas y manejar la infraestructura con Docker Compose. Aquí están los comandos definidos en el `Makefile`:
