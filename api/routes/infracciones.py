@@ -1,7 +1,7 @@
 from typing import List
 from fastapi import APIRouter, Depends
 from sqlmodel import Session
-from api.authenticacion.token import get_current_user
+from api.authenticacion.token import get_current_oficial
 from api.database.infraccion import db_get_informe, db_post_infraccion
 from api.database.settings import get_session
 from api.database.tablas import Infracciones
@@ -35,7 +35,7 @@ def get_generar_informe(
 def post_cargar_infraccion(
     infraccion: InfraccionBase,
     session: Session = Depends(get_session),
-    _: str = Depends(get_current_user)
+    _: str = Depends(get_current_oficial)
 ):
     """ Endpoint para cargar infracciones
     Args:

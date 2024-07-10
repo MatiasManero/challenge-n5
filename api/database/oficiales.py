@@ -6,11 +6,16 @@ from api.error import QueryDBException
 from api.logger import logger
 
 
-def db_get_user_by_nombre(uid: str, session: Session):
+def db_get_oficial_by_numero_unico(uid: str, session: Session):
+    """ Se consulta a la base de datos por un oficial filtrado por su numero unico
+    Args:
+        uid: Numero unico del oficial
+        session: Session de base de datos
+    """
     statement = select(Oficiales).where(Oficiales.numero_unico == uid)
-    users = None
+    oficial = None
     try:
-        users = session.exec(statement).one()
+        oficial = session.exec(statement).one()
     except NoResultFound:
         pass
     except Exception as ex:
@@ -18,4 +23,4 @@ def db_get_user_by_nombre(uid: str, session: Session):
         logger.exception(err_msg)
         raise QueryDBException(detail=err_msg)
 
-    return users
+    return oficial

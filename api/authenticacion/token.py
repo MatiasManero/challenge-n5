@@ -6,7 +6,7 @@ from fastapi import Depends
 from fastapi.security import OAuth2PasswordBearer
 from sqlmodel import Session
 
-from api.database.personas import db_get_user_by_nombre
+from api.database.oficiales import db_get_oficial_by_numero_unico
 from api.database.settings import get_session
 from api.error import UNAuthorizedException, QueryDBException
 from api.settings import auth_setting
@@ -30,8 +30,8 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     return encoded_jwt
 
 
-async def get_current_user(token: str = Depends(oauth2_scheme), session: Session = Depends(get_session)):
-    """Validar el token de authorizacion y retornar el usuario
+async def get_current_oficial(token: str = Depends(oauth2_scheme), session: Session = Depends(get_session)):
+    """Validar el token de authorizacion y retornar el oficial
 
     Args:
         token: token de validacion
@@ -45,7 +45,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme), session: Session
     except jwt.InvalidTokenError:
         raise UNAuthorizedException
     try:
-        user = db_get_user_by_nombre(unique_number, session)
+        oficial = db_get_oficial_by_numero_unico(unique_number, session)
     except QueryDBException:
         raise UNAuthorizedException
-    return user
+    return oficial

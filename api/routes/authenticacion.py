@@ -4,7 +4,7 @@ from sqlmodel import Session
 from starlette import status
 
 from api.authenticacion.token import create_access_token
-from api.database.personas import db_get_user_by_nombre
+from api.database.oficiales import db_get_oficial_by_numero_unico
 from api.database.settings import get_session
 from api.database.tablas import Oficiales
 
@@ -16,7 +16,7 @@ async def login_for_access_token(
         uid: str = Query(...),
         session: Session = Depends(get_session)
 ):
-    oficial: Oficiales = db_get_user_by_nombre(uid, session)
+    oficial: Oficiales = db_get_oficial_by_numero_unico(uid, session)
     if not oficial:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

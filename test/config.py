@@ -8,7 +8,7 @@ from sqlmodel import Session
 from importlib import import_module
 from fastapi.testclient import TestClient
 
-from api.authenticacion.token import get_current_user
+from api.authenticacion.token import get_current_oficial
 from api.database.tablas import create_tables
 from api.app import app
 
@@ -61,7 +61,7 @@ def test_client():
         dbapi_connection.execute("PRAGMA foreign_keys=ON")
 
     load_testing_data(engine)
-    app.dependency_overrides[get_current_user] = lambda: "TEST"
+    app.dependency_overrides[get_current_oficial] = lambda: "TEST"
     with mock.patch("api.database.settings.engine", engine):
         with TestClient(app) as client:
             yield client
